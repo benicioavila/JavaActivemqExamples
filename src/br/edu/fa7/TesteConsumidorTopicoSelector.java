@@ -26,8 +26,8 @@ public class TesteConsumidorTopicoSelector {
 		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 
 		Topic topico = (Topic) context.lookup("loja");
-		// MessageConsumer consumer = session.createConsumer(topico);
-		MessageConsumer consumer = session.createDurableSubscriber(topico, "assinatura", "ebook=false", false);
+	   // MessageConsumer consumer = session.createConsumer(topico);
+		MessageConsumer consumer = session.createDurableSubscriber(topico, "assinatura-selector", "ebook=false", false);		
 
 		consumer.setMessageListener(new MessageListener() {
 

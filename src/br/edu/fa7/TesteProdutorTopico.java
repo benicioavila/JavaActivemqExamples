@@ -23,8 +23,8 @@ public class TesteProdutorTopico {
 
 		MessageProducer producer = session.createProducer(topico);
 
-		Message message = session.createTextMessage("<pedido><id>" + 234 + "</id></pedido>");
-		
+		Message message = session.createTextMessage("<pedido><id>" + 234 + "</id><ebook>false</ebook></pedido>");
+		message.setBooleanProperty("ebook", false);
 		producer.send(message);
 
 		// new Scanner(System.in).nextLine();
